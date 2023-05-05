@@ -13,13 +13,18 @@ public:
 	void add_age() {
 		age += 1;
 	}
+	Human& operator +(int val) {
+		Human other = *this;
+		other.age += val;
+		return other;
+	}
 };
 
 int main()
 {
 	Human h = { "Alex",50 };
-	h.add_age();
-	h.add_age(2);
+	h = h + 1;
+	
 	cout << h.age;
 }
 
